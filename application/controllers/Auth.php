@@ -62,13 +62,17 @@ class Auth extends CI_Controller
                 $this->session->set_userdata($data_sess);
                 $this->session->set_flashdata(
                     'login_success',
-                    'Selamat Datang Di Absensi.'
+                    'Selamat Datang Di Penjualan.'
                 );
 
                 // Mengarahkan pengguna ke halaman berdasarkan peran mereka.
                 redirect(base_url() . $table);
             }
         }
+
+        // Jika tidak ada pengguna yang cocok dengan email dan kata sandi yang diberikan.
+        $this->session->set_flashdata('login_error', 'Silahkan coba kembali.');
+        redirect(base_url() . 'auth'); // Mengarahkan pengguna kembali ke halaman login.
     }
 
     public function aksi_register()

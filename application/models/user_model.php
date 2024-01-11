@@ -33,5 +33,25 @@ class User_model extends CI_Model
             return [];
         }
     }
+
+    public function get_manajemen_produk_data() {
+        // Replace this with your actual database query logic
+        // For example, fetching data from a table named 'manajemen_produk'
+        $query = $this->db->get('manajemen_produk');
+
+        // Check if the query was successful
+        if ($query) {
+            // Return the result set as an array of objects
+            return $query->result();
+        } else {
+            // Return an empty array or handle the error as needed
+            return array();
+        }
+    }
+
+    public function save_barang_data($data) {
+        // Assuming 'Your_table_name' is the name of your table
+        $this->db->insert('manajemen_produk', $data);
+    }
 }
 ?>
