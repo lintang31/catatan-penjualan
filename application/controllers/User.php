@@ -78,8 +78,58 @@ class User extends CI_Controller
         redirect('user/manajemen_produk');
     }
 
-    // Add other methods or functions as needed
 
+    public function detail_barang($id_produk)
+    {
+        // Menggunakan fungsi get_manajemen_produk untuk mendapatkan data lokasi
+        $data['manajemen_produk'] = $this->User_model->get_manajemen_produk($id_produk);
     
+        // Mengirim data lokasi ke view
+        $this->load->view('page/user/detail_barang', $data);
+    }
+    
+  // User.php
+public function update_barang($id_produk)
+{
+    // Load necessary models or helpers here
+    $this->load->model('User_model');
+
+    // Assuming you have a method in your model to get product details by ID using get_manajemen_produk
+    $data['manajemen_produk'] = $this->User_model->get_manajemen_produk($id_produk);
+
+    // Load the view for updating product details
+    $this->load->view('page/user/update_barang', $data);
+}
+
+public function aksi_edit_barang() {
+    // Handle the form submission here
+    $id_produk = $this->input->post('id_produk');
+    $nama_barang = $this->input->post('nama_barang');
+    $jumlah_barang = $this->input->post('jumlah_barang');
+    $keterangan_barang = $this->input->post('keterangan_barang');
+
+    // Perform validation if needed
+
+    // Update the data in the database
+    $data = array(
+        'nama_barang' => $nama_barang,
+        'jumlah_barang' => $jumlah_barang,
+        'keterangan_barang' => $keterangan_barang
+        // Add other fields if needed
+    );
+
+    $this->User_model->update_barang($id_produk, $data);
+
+    // Redirect to the desired page after successful update
+    redirect('user/update_barang/'.$id_produk); // Change 'user/index' to your desired page
+}
+
+ // aksi hapus lokasi
+ public function hapus_barang($id_lokasi)
+ {
+     $this->User_model->hapus_barang($id_lokasi); // Assuming you have a method 'hapus_barang' in the model
+     redirect('user/manajemen_produk');
+     $this->session->set_flashdata('hapus_barang');
+ }
 
     }

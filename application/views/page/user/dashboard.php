@@ -49,7 +49,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5">
                 <a href="<?= base_url('user/manajemen_produk') ?>"
                     class="w-full p-4 text-center bg-red-400 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                    <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Manajemen Produk</h5>
+                    <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Barang Produk</h5>
                     <hr class="mb-4 border-gray-900">
                     <div class="flex justify-between">
                         <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">
