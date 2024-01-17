@@ -99,18 +99,40 @@ class User_model extends CI_Model
         return $query->row();
     }
 
-    public function update_barang($id_produk, $data)
-    {
-        // Update lokasi berdasarkan id_produk
-        $this->db->where('id_produk', $id_produk);
-        $this->db->update('manajemen_produk', $data);
-    }
+    // public function get_barang_data($id_produk, $data)
+    // {
+    //     // Update lokasi berdasarkan id_produk
+    //     $this->db->where('id_produk', $id_produk);
+    //     $this->db->update('manajemen_produk', $data);
+    // }
 
     public function hapus_barang($id_produk)
     {
         // Your deletion logic here
         $this->db->where('id_produk', $id_produk);
         $this->db->delete('manajemen_produk');
+    }
+
+    
+    public function get_barang_data($id_produk) {
+        // Add your logic to fetch the product data from the database based on the provided $id_produk
+        // Example: Replace 'manajemen_produk' with your actual database table name
+        $query = $this->db->get_where('manajemen_produk', array('id_produk' => $id_produk));
+        return $query->row_array();
+    }
+    
+
+    public function update_barang($id_produk, $nama_barang, $jumlah_barang, $keterangan_barang) {
+        // Add your logic to update the product data in the database
+        // Example: Replace 'manajemen_produk' with your actual database table name
+        $data = array(
+            'nama_barang' => $nama_barang,
+            'jumlah_barang' => $jumlah_barang,
+            'keterangan_barang' => $keterangan_barang
+        );
+
+        $this->db->where('id_produk', $id_produk);
+        $this->db->update('manajemen_produk', $data);
     }
 }
 ?>

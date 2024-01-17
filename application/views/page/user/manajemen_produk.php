@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manajemen Produk</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
@@ -41,6 +44,9 @@
                                     Jumlah Barang
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Harga Barang
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Keterangan Barang
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -66,6 +72,11 @@
                                 $data->jumlah_barang
                             )
                                 ? $data->jumlah_barang
+                                : ''; ?></td>
+                            <td class="px-6 py-4"><?php echo isset(
+                                $data->harga_barang
+                            )
+                                ? $data->harga_barang
                                 : ''; ?></td>
                             <td class="px-6 py-4"><?php echo isset(
                                 $data->keterangan_barang
