@@ -61,7 +61,7 @@
                     </div>
                 </a>
                 </a>
-                <a href="<?= base_url('user/izin') ?>"
+                <a href="<?= base_url('user/proses_penjualan') ?>"
                     class="w-full p-4 text-center bg-yellow-400 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Proses Penjualan</h5>
                     <hr class="mb-4 border-gray-900">

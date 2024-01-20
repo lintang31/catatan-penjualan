@@ -93,17 +93,15 @@
                                         class="text-white bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 mx-1 py-2.5 mr-2 mb-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800">
                                         <i class="fa-solid fa-circle-info"></i>
                                     </a>
-                                    <a type="button" href="<?php echo base_url(
-                                            'user/update_barang/' .
-                                                $data->id_produk
-                                        ); ?>"
-                                        class="text-white bg-yellow-400 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
                                     <a href="javascript:void(0);"
                                         onclick="hapusLokasi('<?php echo $data->id_produk; ?>')"
                                         class="text-white bg-red-600 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800">
                                         <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                    <a type="button"
+                                        href="<?php echo base_url('user/proses_penjualan/' . $data->id_produk); ?>"
+                                        class="text-white bg-green-400 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800">
+                                        <i class="fa-solid fa-arrow-alt-circle-right"></i>
                                     </a>
 
                                 </div>
@@ -123,7 +121,7 @@
 function hapusLokasi(idLokasi) {
     Swal.fire({
         title: 'Apakah Anda yakin?',
-        text: 'Data lokasi beserta karyawan yang terkait akan dihapus!',
+        text: 'Data Produk yang terkait akan dihapus!',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
@@ -135,7 +133,7 @@ function hapusLokasi(idLokasi) {
             // Contoh SweetAlert berhasil (gantilah ini dengan respons server sebenarnya)
             Swal.fire({
                 title: 'Berhasil!',
-                text: 'Data lokasi berhasil dihapus.',
+                text: 'Data Produk berhasil dihapus.',
                 icon: 'success',
                 timer: 1500, // Waktu dalam milidetik sebelum SweetAlert ditutup secara otomatis (1.5 detik dalam contoh ini)
                 showConfirmButton: false // Menyembunyikan tombol OK

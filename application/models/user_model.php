@@ -34,21 +34,7 @@ class User_model extends CI_Model
         }
     }
 
-    public function get_manajemen_produk_data() {
-        // Replace this with your actual database query logic
-        // For example, fetching data from a table named 'manajemen_produk'
-        $query = $this->db->get('manajemen_produk');
-
-        // Check if the query was successful
-        if ($query) {
-            // Return the result set as an array of objects
-            return $query->result();
-        } else {
-            // Return an empty array or handle the error as needed
-            return array();
-        }
-    }
-
+    
     public function save_barang_data($data) {
         // Assuming 'Your_table_name' is the name of your table
         $this->db->insert('manajemen_produk', $data);
@@ -134,5 +120,93 @@ class User_model extends CI_Model
         $this->db->where('id_produk', $id_produk);
         $this->db->update('manajemen_produk', $data);
     }
+
+    public function tambah_data($tabel, $data)
+    {
+        // Masukkan data ke dalam tabel
+        $this->db->insert($tabel, $data);
+    }
+
+    public function get_penjualan_data_byuser($id_penjualan)
+    {
+        // Lakukan query atau operasi lain untuk mendapatkan data penjualan berdasarkan id_penjualan
+        // ...
+    
+        // Contoh query menggunakan Active Record
+        $this->db->select('*');
+        $this->db->from('proses_penjualan');
+        $this->db->where('id_penjualan', $id_penjualan); // Perubahan pada bagian ini
+        $query = $this->db->get();
+    
+        return $query->result();
+    }
+
+
+    public function get_penjualan_data_by_id($id_penjualan)
+    {
+        // Retrieve penjualan data based on the provided ID
+        $this->db->where('id_penjualan', $id_penjualan);
+        $query = $this->db->get('proses_penjualan');
+
+        // Check if there is a result
+        if ($query->num_rows() > 0) {
+            return $query->row_array(); // Return the result as an associative array
+        } else {
+            return null; // Return null if no result is found
+        }
+    }
+    
+    public function getPenjualanData() {
+        // Example query to get data from the 'penjualan' table
+        $query = $this->db->get('proses_penjualan');
+        return $query->result(); // Returns an array of objects
+    }
+    
+    public function get_dataa($id_penjualan) {
+        // Assuming you have a table named 'proses_penjualan' and a column named 'id' as the item identifier, adjust accordingly
+        $this->db->where('id_penjualan', $id_penjualan);
+        $query = $this->db->get('proses_penjualan');
+    
+        // Check if the query was successful
+        if ($query->num_rows() > 0) {
+            // Return the result as an array of objects for the specific item
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function get_manajemen_produk_data() {
+        // Replace this with your actual database query logic
+        // For example, fetching data from a table named 'manajemen_produk' with a specific ID
+        $query = $this->db->get('manajemen_produk');
+    
+        // Check if the query was successful
+        if ($query) {
+            // Return the result set as an array of objects 
+            return $query->result();
+        } else {
+            // Return an empty array or handle the error as needed
+            return array();
+        }
+    }
+
+    public function get_manajemen_produk_dataa($id_produk) {
+        // Replace this with your actual database query logic
+        // For example, fetching data from a table named 'manajemen_produk' with a specific ID
+        $this->db->where('id_produk', $id_produk);
+        $query = $this->db->get('manajemen_produk');
+    
+        // Check if the query was successful
+        if ($query) {
+            // Return the result set as an array of objects 
+            return $query->result();
+        } else {
+            // Return an empty array or handle the error as needed
+            return array();
+        }
+    }
+    
+    
 }
 ?>

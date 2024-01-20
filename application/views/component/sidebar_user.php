@@ -45,9 +45,8 @@ $image = $_SESSION['image'];
                                 aria-expanded="false" data-dropdown-toggle="dropdown-user">
                                 <span class="sr-only">Open user menu</span>
                                 <!--  -->
-                                <img class="w-8 h-8 rounded-full" src="<?= base_url(
-                                    'images/user/' . $image
-                                ) ?>" alt="user photo"></a>
+                                <img class="" src="<?= base_url(
+                                ) ?>"></a>
                             </button>
                         </div>
                         <div class="z-50 hidden my-4 text-base list-none bg-gray-900 divide-y divide-gray-700 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
@@ -61,13 +60,6 @@ $image = $_SESSION['image'];
                                 </p>
                             </div>
                             <ul class="py-1" role="none">
-                                <li>
-                                    <a href="<?php echo base_url(
-                                        'user/profile'
-                                    ); ?>" class="block px-4 py-2 text-sm text-white hover:bg-gray-700
-                                        dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Profile</a>
-                                </li>
                                 <li>
                                     <a onclick="confirmLogout();"
                                         class="block px-4 py-2 text-sm text-white hover:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -105,7 +97,15 @@ $image = $_SESSION['image'];
                         <span class="ml-3">Manajemen Produk</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="<?php echo base_url('user/history_jualan'); ?>"
+                        class="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-700 dark:hover:bg-gray-700 group">
+                        <i
+                            class="fa-solid fa-clock-rotate-left fa-fw fa-lg me-3 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
+                        <!-- Replaced with 'fa-shopping-cart' icon class, representing "History Jualan" -->
+                        <span class="ml-3">History Jualan</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </aside>

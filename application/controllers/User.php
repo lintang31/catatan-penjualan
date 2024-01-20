@@ -24,11 +24,6 @@ class User extends CI_Controller
         $this->load->view('page/user/dashboard', $data);
     }
 
-    public function profile() 
-    {
-        $this->load->view('page/user/profile');
-    }
-
     public function manajemen_produk() {
         // Assuming you have some data to pass to the view
         $data['manajemen_produk'] = $this->User_model->get_manajemen_produk_data(); // Replace with your actual data retrieval logic
@@ -90,41 +85,6 @@ class User extends CI_Controller
         $this->load->view('page/user/detail_barang', $data);
     }
     
-  // User.php
-// public function update_barang($id_produk)
-// {
-//     // Load necessary models or helpers here
-//     $this->load->model('User_model');
-
-//     // Assuming you have a method in your model to get product details by ID using get_manajemen_produk
-//     $data['manajemen_produk'] = $this->User_model->get_manajemen_produk($id_produk);
-
-//     // Load the view for updating product details
-//     $this->load->view('page/user/update_barang', $data);
-// }
-
-// public function aksi_edit_barang() {
-//     // Handle the form submission here
-//     $id_produk = $this->input->post('id_produk');
-//     $nama_barang = $this->input->post('nama_barang');
-//     $jumlah_barang = $this->input->post('jumlah_barang');
-//     $keterangan_barang = $this->input->post('keterangan_barang');
-
-//     // Perform validation if needed
-
-//     // Update the data in the database
-//     $data = array(
-//         'nama_barang' => $nama_barang,
-//         'jumlah_barang' => $jumlah_barang,
-//         'keterangan_barang' => $keterangan_barang
-//         // Add other fields if needed
-//     );
-
-//     $this->User_model->update_barang($id_produk, $data);
-
-//     // Redirect to the desired page after successful update
-//     redirect('user/update_barang/'.$id_produk); // Change 'user/index' to your desired page
-// }
 
  // aksi hapus lokasi
  public function hapus_barang($id_lokasi)
@@ -134,29 +94,77 @@ class User extends CI_Controller
      $this->session->set_flashdata('hapus_barang');
  }
 
- public function update_barang($id_produk) {
-    // Add any logic you need before loading the view
-    $data['manajemen_produk'] = $this->User_model->get_barang_data($id_produk); // Replace 'Your_model_name' with your actual model name
+public function proses_penjualan($id_produk) 
+{
 
-    // Load the view with the necessary data
-    $this->load->view('page/user/update_barang', $data);
+    $data['manajemen_produk'] = $this->User_model->get_manajemen_produk_dataa($id_produk); // Replace with your actual data retrieval logic
+    $this->load->view('page/user/proses_penjualan', $data);
 }
 
-public function aksi_edit_barang() {
-    // Validate the form data (add validation rules as needed)
+public function aksi_proses_penjualan()
+{
+    // Generate ID penjualan using timestamp
+    $id_penjualan = 'JL' . date('YmdHis');
 
-    // Get the form data
-    $id_produk = $this->input->post('id_produk');
+    // Ambil data dari formulir
     $nama_barang = $this->input->post('nama_barang');
     $jumlah_barang = $this->input->post('jumlah_barang');
+    $harga_barang = $this->input->post('harga_barang');
     $keterangan_barang = $this->input->post('keterangan_barang');
 
-    // Update the data in your model (replace 'Your_model_name' with your actual model name)
-    $this->User_model->update_barang($id_produk, $nama_barang, $jumlah_barang, $keterangan_barang);
+    // Masukkan data ke dalam database
+    $data = [
+        'id_penjualan' => $id_penjualan,
+        'nama_barang' => $nama_barang,
+        'jumlah_barang' => $jumlah_barang,
+        'harga_barang' => $harga_barang,
+        'keterangan_barang' => $keterangan_barang,
+        // tambahkan kolom lain sesuai kebutuhan
+    ];
 
-    // Redirect or display a success message
-    redirect('user/manajemen_produk'); // Redirect to the edit_barang method
+    // Panggil model untuk menyimpan data
+    $this->User_model->tambah_data('proses_penjualan', $data);
+
+    // Set pesan sukses
+    $this->session->set_flashdata('berhasil', 'Data penjualan berhasil ditambahkan.');
+
+    // Set the ID penjualan in session
+    $this->session->set_userdata('id_penjualan', $id_penjualan);
+
+    // Redirect ke halaman histori penjualan
+    redirect('user/history_jualan');
 }
+
+public function history_jualan() {
+    // Load the Penjualan_model
+    $this->load->model('User_model');
+
+    // Get data from the model
+    $data['proses_penjualan'] = $this->User_model->getPenjualanData();
+
+    // Load the view with data
+    $this->load->view('page/user/history_jualan', $data);
+}
+
+public function detail_jualan($id_penjualan) {
+    // Load the necessary model here and get data for the specified item ID
+    $this->load->model('User_model');
+    $proses_penjualan_data = $this->User_model->get_dataa($id_penjualan); // Modify the model method to accept and use $item_id
+
+    // Check if the data is found
+    if ($proses_penjualan_data) {
+        // Pass data to the view
+        $data['proses_penjualan'] = $proses_penjualan_data;
+
+        // Load the view
+        $this->load->view('page/user/detail_jualan', $data);
+    } else {
+        // Handle the case where the data for the specified item ID is not found
+        // For example, you can redirect to an error page or display an error message
+        echo "Item not found"; // Modify this part based on your error handling logic
+    }
+}
+
 
 
     }
