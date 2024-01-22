@@ -206,7 +206,69 @@ class User_model extends CI_Model
             return array();
         }
     }
+
+    public function get_proses_penjualan_data($id_penjualan) {
+        // Replace 'your_proses_penjualan_table' with the actual table name
+        $this->db->select('*')->from('proses_penjualan')->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row();
+        }
+
+        return null;
+    }
     
-    
+    public function get_nama_barang($id_penjualan) {
+        // Replace the following line with your actual database query or data retrieval logic
+        // Assuming you have a table named 'barang' with a column 'nama_barang'
+        $query = $this->db->get_where('proses_penjualan', array('id_penjualan' => $id_penjualan));
+        $result = $query->row();
+
+        if ($result) {
+            return $result->nama_barang;
+        } else {
+            return 'Nama Barang Not Found';
+        }
+    }
+
+    public function get_jumlah_barang($id_penjualan) {
+        // Replace the following line with your actual database query or data retrieval logic
+        // Assuming you have a table named 'barang' with a column 'jumlah_barang'
+        $query = $this->db->get_where('proses_penjualan', array('id_penjualan' => $id_penjualan));
+        $result = $query->row();
+
+        if ($result) {
+            return $result->jumlah_barang;
+        } else {
+            return 'Jumlah Barang Not Found';
+        }
+    }
+
+    public function get_harga_barang($id_penjualan) {
+        // Replace the following line with your actual database query or data retrieval logic
+        // Assuming you have a table named 'barang' with a column 'harga_barang'
+        $query = $this->db->get_where('proses_penjualan', array('id_penjualan' => $id_penjualan));
+        $result = $query->row();
+
+        if ($result) {
+            return $result->harga_barang;
+        } else {
+            return 'Harga Barang Not Found';
+        }
+    }
+
+    public function get_keterangan_barang($id_penjualan) {
+        // Replace the following line with your actual database query or data retrieval logic
+        // Assuming you have a table named 'barang' with a column 'keterangan_barang'
+        $query = $this->db->get_where('proses_penjualan', array('id_penjualan' => $id_penjualan));
+        $result = $query->row();
+
+        if ($result) {
+            return $result->keterangan_barang;
+        } else {
+            return 'Keterangan Barang Not Found';
+        }
+    }
 }
 ?>

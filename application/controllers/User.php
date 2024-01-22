@@ -165,6 +165,27 @@ public function detail_jualan($id_penjualan) {
     }
 }
 
+public function nota_barang($id_penjualan) {
+    // Assuming you have a model or other logic to get data
+    $proses_penjualan = $this->User_model->get_proses_penjualan_data($id_penjualan); // Replace with actual method
+    $id_penjualan = $proses_penjualan->id_penjualan;
+
+    // Using the model's function to get the name
+    $nama_barang = $this->User_model->get_nama_barang($id_penjualan);
+    $jumlah_barang = $this->User_model->get_jumlah_barang($id_penjualan);
+    $harga_barang = $this->User_model->get_harga_barang($id_penjualan);
+    $keterangan_barang = $this->User_model->get_keterangan_barang($id_penjualan);
+
+    $data = array(
+        'proses_penjualan' => $proses_penjualan,
+        'nama_barang' => $nama_barang,
+        'jumlah_barang' => $jumlah_barang,
+        'harga_barang' => $harga_barang,
+        'keterangan_barang' => $keterangan_barang,
+    );
+
+    $this->load->view('page/user/nota_barang', $data);
+}
 
 
     }
