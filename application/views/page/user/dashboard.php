@@ -60,7 +60,7 @@
     .card {
         border: 1px solid #ddd;
         border-radius: 8px;
-        background-color: #f0f0f0;
+        background-color: white;
         padding: 20px;
         margin-bottom: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -93,7 +93,7 @@
         <!-- Card Selamat Datang -->
         <div class="mt-10 w-full">
             <div
-                class="p-4 text-center bg-gray-400 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                class="p-4 text-center bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <?php
                     date_default_timezone_set('UTC');
                     $currentDateTime = new DateTime();

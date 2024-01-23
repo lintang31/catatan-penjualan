@@ -13,12 +13,12 @@
 </head>
 
 <body class="h-screen" style="overflow-x: hidden;">
-    <div class="min-h-screen min-w-screen w-screen bg-gray-900 flex items-center justify-center px-5 py-5">
-        <div class="bg-gray-800 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden max-w-md">
+    <div class="min-h-screen min-w-screen w-screen bg-orange-500 flex items-center justify-center px-5 py-5">
+        <div class="bg-orange-600 text-orange-300 rounded-3xl shadow-xl w-full overflow-hidden max-w-md">
             <!-- Register form -->
             <div class="w-full py-10 px-5">
                 <div class="text-center mb-5">
-                    <h1 class="font-bold text-3xl text-white-900">Registrasi</h1>
+                    <h1 class="font-bold text-3xl text-white">Registrasi</h1>
                 </div>
                 <form class="mt-7" action="<?php echo base_url('auth/aksi_register'); ?>" method="post">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -31,7 +31,7 @@
                                     <i class="fa-solid fa-address-card"></i>
                                 </div>
                                 <input type="text" name="nama_depan" autocomplete="off" required
-                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-700 outline-none focus:border-indigo-500"
+                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-orange-700 outline-none focus:border-indigo-500"
                                     placeholder="Nama Depan">
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                                     <i class="fa-solid fa-address-card"></i>
                                 </div>
                                 <input type="text" name="nama_belakang" autocomplete="off" required
-                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-700 outline-none focus:border-indigo-500"
+                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-orange-700 outline-none focus:border-indigo-500"
                                     placeholder="Nama Belakang">
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                     <i class="fa-solid fa-envelope"></i>
                                 </div>
                                 <input type="email" name="email" autocomplete="off" required
-                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-700 outline-none focus:border-indigo-500"
+                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-orange-700 outline-none focus:border-indigo-500"
                                     placeholder="Email">
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                                     <i class="fa-solid fa-at"></i>
                                 </div>
                                 <input type="text" name="username" autocomplete="off" required
-                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-700 outline-none focus:border-indigo-500"
+                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-orange-700 outline-none focus:border-indigo-500"
                                     placeholder="Username">
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                     <i class="fa-solid fa-lock"></i>
                                 </div>
                                 <input type="password" id="password" name="password" autocomplete="off" required
-                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-700 outline-none focus:border-indigo-500"
+                                    class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-orange-700 outline-none focus:border-indigo-500"
                                     placeholder="Password">
                                 <div class="absolute top-0 right-0 mt-2 mr-4 text-xs text-gray-600">
                                     <?php echo validation_errors(); ?></div>
@@ -92,7 +92,7 @@
                         <div class="w-full">
                             <div class="flex">
                                 <div class="text-red-500">*</div>
-                                <div class="text-sm font-medium text-white-950 dark:text-white-950">
+                                <div class="text-sm font-medium text-white">
                                     Password harus memiliki 8 karakter
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                         <div class="w-full">
                             <div class="flex items-center">
                                 <input id="showpass" type="checkbox" value=""
-                                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
+                                    class="w-4 h-4 border border-orange-300 rounded bg-orange-50 focus:ring-3 focus:ring-blue-300"
                                     onchange="showPassword()">
                                 <label for="showpass" class="ml-2 text-sm font-medium">Show Password</label>
                             </div>
@@ -109,13 +109,12 @@
                     <div class="flex -mx-3 mt-7">
                         <div class="w-full px-3 mb-8">
                             <button
-                                class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">Register</button>
+                                class="block w-full max-w-xs mx-auto bg-orange-700 hover:bg-orange-900 focus:bg-orange-900 text-white rounded-lg px-3 py-3 font-semibold">Register</button>
                         </div>
                     </div>
-                    <div class="text-sm font-medium text-gray-950 dark:text-gray-950">
+                    <div class="text-sm font-medium text-white">
                         Sudah Memiliki Akun? <a href="<?= base_url('auth/index') ?>"
-                            class="text-blue-700 hover:underline dark:text-blue-500">Login
-                            Sekarang</a>
+                            class="text-blue-700 hover:underline">Login Sekarang</a>
                     </div>
                 </form>
             </div>

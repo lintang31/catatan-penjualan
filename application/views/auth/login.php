@@ -12,9 +12,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
 </head>
 
-<body class="bg-gray-900 text-white">
+<body class="bg-orange-500 text-white">
+    <!-- Updated background color -->
     <div class="min-w-screen min-h-screen flex items-center justify-center px-5 py-5">
-        <div class="bg-gray-800 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden max-w-md">
+        <div class="bg-orange-600 text-orange-300 rounded-3xl shadow-xl w-full overflow-hidden max-w-md">
+            <!-- Updated background and text color -->
             <!-- Login form -->
             <div class="w-full py-10 px-5">
                 <div class="text-center mb-5">
@@ -29,7 +31,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <input type="email" name="email" autocomplete="off" required
-                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-700 outline-none focus:border-indigo-500"
+                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-orange-700 outline-none focus:border-indigo-500"
                                 placeholder="Email">
                         </div>
                     </div>
@@ -41,14 +43,14 @@
                                 <i class="fa-solid fa-lock"></i>
                             </div>
                             <input type="password" id="password" name="password" autocomplete="off" required
-                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-700 outline-none focus:border-indigo-500"
+                                class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-orange-700 outline-none focus:border-indigo-500"
                                 placeholder="Password">
                         </div>
                     </div>
                     <div class="flex justify-between mt-3">
                         <div class="flex items-center">
                             <input id="showpass" type="checkbox" value=""
-                                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300"
+                                class="w-4 h-4 border border-orange-300 rounded bg-orange-50 focus:ring-3 focus:ring-blue-300"
                                 onchange="showPassword()">
                             <label for="showpass" class="ml-2 text-sm font-medium">Show Password</label>
                         </div>
@@ -57,7 +59,8 @@
                     </div>
                     <div class="flex mt-4">
                         <button
-                            class="w-full bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">Login</button>
+                            class="w-full bg-orange-700 hover:bg-orange-900 focus:bg-orange-900 text-white rounded-lg px-3 py-3 font-semibold">Login</button>
+                        <!-- Updated background and hover color -->
                     </div>
                     <div class="text-sm font-medium mt-5">
                         Tidak Memiliki Akun? <a href="<?= base_url('auth/register') ?>"
