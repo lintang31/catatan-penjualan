@@ -270,5 +270,14 @@ class User_model extends CI_Model
             return 'Keterangan Barang Not Found';
         }
     }
+
+    // Modify your model
+public function get_sales_history() {
+    // Replace 'sales_history_table' with the actual table name where you store your sales history data
+    $query = $this->db->get('proses_penjualan');
+
+    return $query->result(); // Assuming you want to return an array of objects
+}
+
 }
 ?>

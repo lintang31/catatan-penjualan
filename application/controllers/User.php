@@ -20,10 +20,11 @@ class User extends CI_Controller
         $id_user = $this->session->userdata('id');
         $data['user_count'] = $this->User_model->get_user_count();
         $data['user'] = $this->User_model->get_user_data();
+        $data['sales_history'] = $this->User_model->get_sales_history();
 
         $this->load->view('page/user/dashboard', $data);
     }
-
+    
     public function manajemen_produk() {
         // Assuming you have some data to pass to the view
         $data['manajemen_produk'] = $this->User_model->get_manajemen_produk_data(); // Replace with your actual data retrieval logic
@@ -168,7 +169,6 @@ public function detail_jualan($id_penjualan) {
 public function nota_barang($id_penjualan) {
     // Assuming you have a model or other logic to get data
     $proses_penjualan = $this->User_model->get_proses_penjualan_data($id_penjualan); // Replace with actual method
-    $id_penjualan = $proses_penjualan->id_penjualan;
 
     // Using the model's function to get the name
     $nama_barang = $this->User_model->get_nama_barang($id_penjualan);
@@ -186,6 +186,12 @@ public function nota_barang($id_penjualan) {
 
     $this->load->view('page/user/nota_barang', $data);
 }
+
+// Add a new function to handle the button click
+public function display_barang($id_barang) {
+    $this->nota_barang($id_barang);
+}
+
 
 
     }

@@ -56,6 +56,34 @@
         border: none;
         cursor: pointer;
     }
+
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f0f0f0;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .sales-history-card {
+        max-height: 400px;
+        overflow-y: auto;
+        background-color: #f0f0f0;
+        color: #333;
+    }
     </style>
 </head>
 
@@ -111,6 +139,32 @@
                 </a>
             </div>
         </div>
+        <!-- Sales History Section -->
+        <div class="card sales-history-card">
+            <h2 class="card-title">History Penjualan</h2>
+            <div class="grid-container">
+                <?php
+                if ($sales_history !== null) :
+                    foreach ($sales_history as $sale) :
+                ?>
+                <div class="card">
+                    <h4 class="text-lg font-semibold mb-2"><?= $sale->nama_barang; ?></h4>
+                    <p>Jumlah Barang: <?= $sale->jumlah_barang; ?></p>
+                    <p>Harga Barang: <?= $sale->harga_barang; ?></p>
+                    <p>Keterangan Barang: <?= $sale->keterangan_barang; ?></p>
+                </div>
+                <?php
+                    endforeach;
+                else :
+                    ?>
+                <p>No sales history available</p>
+                <?php
+                endif;
+                ?>
+            </div>
+        </div>
+    </div>
+    </div>
     </div>
 
     <script>
