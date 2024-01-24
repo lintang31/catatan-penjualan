@@ -112,9 +112,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
             <!-- Add your grid content here -->
         </div>
-
-        <div class="p-2 mt-5">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5">
+        <div class="p-2 mt-5 flex items-center justify-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5 w-full max-w-screen-lg mx-auto">
                 <a href="<?= base_url('user/manajemen_produk') ?>"
                     class="w-full p-4 text-center bg-red-400 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Barang Produk</h5>
@@ -126,19 +125,10 @@
                         </div>
                     </div>
                 </a>
-                <a href="<?= base_url('user/cuti') ?>"
-                    class="w-full p-4 text-center bg-green-400 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-                    <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Inventaris</h5>
-                    <hr class="mb-4 border-gray-900">
-                    <div class="flex justify-between">
-                        <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400"></p>
-                        <div>
-                            <i class="fa-solid fa-archive fa-fw fa-lg me-3 fa-2xl"></i>
-                        </div>
-                    </div>
-                </a>
             </div>
         </div>
+
+
         <!-- Sales History Section -->
         <div class="card sales-history-card">
             <h2 class="card-title">History Penjualan</h2>
