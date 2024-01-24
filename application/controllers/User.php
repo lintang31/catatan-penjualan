@@ -36,7 +36,7 @@ class User extends CI_Controller
         // Load form helper and validation library
         $this->load->helper('form');
         $this->load->library('form_validation');
-
+    
         // Check if the form is submitted
         if ($this->input->post()) {
             // Set form validation rules
@@ -44,21 +44,22 @@ class User extends CI_Controller
             $this->form_validation->set_rules('jumlah_barang', 'Jumlah Barang', 'required');
             $this->form_validation->set_rules('harga_barang', 'Harga barang', 'required');
             $this->form_validation->set_rules('keterangan_barang', 'Keterangan Barang', 'required');
-
+    
             // Run form validation
             if ($this->form_validation->run() == TRUE) {
                 // If validation is successful, process the form data (save to database or perform any other action)
                 $this->process_tambah_barang();
             }
         }
-
+    
         // Load the "Tambah Barang" view
-        $this->load->view('page/user/tambah_barang');
+        $data['tanggal_sekarang'] = date('Y-m-d'); // Mendapatkan tanggal sekarang
+        $this->load->view('page/user/tambah_barang', $data);
     }
-
+    
     private function process_tambah_barang() {
         // Process the form data here (e.g., save to the database)
-
+    
         // For example, assuming you have a model named Some_model
         $this->load->model('User_model');
         
@@ -66,15 +67,17 @@ class User extends CI_Controller
             'nama_barang' => $this->input->post('nama_barang'),
             'jumlah_barang' => $this->input->post('jumlah_barang'),
             'harga_barang' => $this->input->post('harga_barang'),
-            'keterangan_barang' => $this->input->post('keterangan_barang')
+            'keterangan_barang' => $this->input->post('keterangan_barang'),
+            'tanggal' => $this->input->post('tanggal') // Menggunakan tanggal dari form, atau bisa diganti dengan tanggal saat ini
         );
-
+    
         // Save data to the database using the model
         $this->User_model->save_barang_data($data);
-
+    
         // Redirect to a success page or perform any other actions after successful data processing
         redirect('user/manajemen_produk');
     }
+    
 
 
     public function detail_barang($id_produk)
@@ -113,6 +116,9 @@ public function aksi_proses_penjualan()
     $harga_barang = $this->input->post('harga_barang');
     $keterangan_barang = $this->input->post('keterangan_barang');
 
+    // Tambahkan kolom tanggal dengan timestamp saat ini
+    $tanggal = date('Y-m-d H:i:s');
+
     // Masukkan data ke dalam database
     $data = [
         'id_penjualan' => $id_penjualan,
@@ -120,6 +126,7 @@ public function aksi_proses_penjualan()
         'jumlah_barang' => $jumlah_barang,
         'harga_barang' => $harga_barang,
         'keterangan_barang' => $keterangan_barang,
+        'tanggal' => $tanggal, // Tambahkan kolom tanggal
         // tambahkan kolom lain sesuai kebutuhan
     ];
 
@@ -135,6 +142,7 @@ public function aksi_proses_penjualan()
     // Redirect ke halaman histori penjualan
     redirect('user/history_jualan');
 }
+
 
 public function history_jualan() {
     // Load the Penjualan_model

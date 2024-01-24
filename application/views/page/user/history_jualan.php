@@ -5,57 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History Jualan</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
-    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
-
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Include SweetAlert for notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 </head>
-
 
 <body>
     <?php $this->load->view('component/sidebar_user'); ?>
+
     <div class="p-4 sm:ml-64">
         <div class="p-5 mt-10">
-
-            <!-- Card -->
             <div
                 class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex justify-between">
                     <h6 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">History Jualan</h6>
                 </div>
-
                 <hr>
 
-                <!-- Tabel -->
                 <div class="relative overflow-x-auto mt-5">
                     <table id="datajualan" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-
-                        <!-- Tabel Head -->
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    No
-                                </th>
-
-                                <th scope="col" class="px-6 py-3">
-                                    Nama Barang
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Jumlah Barang
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Harga Barang
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Keterangan Barang
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Aksi
-                                </th>
+                                <th scope="col" class="px-6 py-3">No</th>
+                                <th scope="col" class="px-6 py-3">Nama Barang</th>
+                                <th scope="col" class="px-6 py-3">Tanggal</th>
+                                <th scope="col" class="px-6 py-3">Jumlah Barang</th>
+                                <th scope="col" class="px-6 py-3">Harga Barang</th>
+                                <th scope="col" class="px-6 py-3">Keterangan Barang</th>
+                                <th scope="col" class="px-6 py-3">Aksi</th>
                             </tr>
                         </thead>
 
-                        <!-- Tabel Body -->
                         <tbody class='text-left'>
                             <?php
                             $no = 0;
@@ -68,34 +51,26 @@
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <?php echo $no; ?>
                                 </th>
-
-                                <td class="px-6 py-4">
-                                    <?php echo $row->nama_barang; ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <?php echo $row->jumlah_barang; ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <?php echo $row->harga_barang; ?>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <?php echo $row->keterangan_barang; ?>
-                                </td>
+                                <td class="px-6 py-4"><?php echo $row->nama_barang; ?></td>
+                                <td class="px-6 py-4"><?php echo $row->tanggal; ?></td>
+                                <td class="px-6 py-4"><?php echo $row->jumlah_barang; ?></td>
+                                <td class="px-6 py-4"><?php echo $row->harga_barang; ?></td>
+                                <td class="px-6 py-4"><?php echo $row->keterangan_barang; ?></td>
                                 <td class="px-6 py-4">
                                     <a type="button" href="<?= base_url('user/detail_jualan/' . $row->id_penjualan) ?>"
-                                        class="text-white bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 mx-1 py-2.5 mr-2 mb-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800">
-                                        <i class="fa-solid fa-circle-info"></i>
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full button-info">
+                                        <i class="fas fa-info-circle"></i>
                                     </a>
-                                    <a id="downloadPdfButton" type="button" href="<?php echo base_url(
-                                            'user/nota_barang/'
-                                        ) . $row->id_penjualan; ?>"
-                                        class="text-white bg-yellow-400 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800">
-                                        <i class="fa-solid fa-print"></i>
+
+                                    <a id="downloadPdfButton" type="button"
+                                        href="<?php echo base_url('user/nota_barang/') . $row->id_penjualan; ?>"
+                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full button-print">
+                                        <i class="fas fa-print"></i>
                                     </a>
+
                                 </td>
                             </tr>
-                            <?php
-                                endforeach;
+                            <?php endforeach;
                             } else {
                                 // Display a message if $proses_penjualan is null
                                 echo '<tr><td colspan="6">No data available</td></tr>';
@@ -107,95 +82,71 @@
             </div>
         </div>
     </div>
-</body>
 
-<script>
-$(document).ready(function() {
-    $('#dataCuti').DataTable();
-});
-</script>
+    <!-- Include jQuery and DataTables scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 
-
-
-<script>
-function batal_cuti(id_cuti) {
-    Swal.fire({
-        title: 'Apakah Anda yakin?',
-        text: 'Batalkan cuti!',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        confirmButtonText: 'Ya!',
-        cancelButtonText: 'Batal'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = "<?php echo base_url(
-                'user/aksi_batal_cuti/'
-            ); ?>" + id_cuti;
-        }
+    <!-- DataTables initialization script -->
+    <script>
+    $(document).ready(function() {
+        $('#datajualan').DataTable();
     });
-}
-</script>
+    </script>
 
-<?php if ($this->session->flashdata('berhasil_batal')) { ?>
-<script>
-Swal.fire({
-    title: "Berhasil",
-    text: "<?php echo $this->session->flashdata('berhasil_batal'); ?>",
-    icon: "success",
-    showConfirmButton: false,
-    timer: 1500
-});
-</script>
-<?php } ?>
+    <!-- Other scripts, e.g., Swal (SweetAlert) for notifications -->
+    <script>
+    // Your other scripts go here
+    </script>
 
-<?php if ($this->session->flashdata('berhasil_cuti')) { ?>
-<script>
-Swal.fire({
-    title: "Berhasil",
-    text: "<?php echo $this->session->flashdata('berhasil_cuti'); ?>",
-    icon: "success",
-    showConfirmButton: false,
-    timer: 1500
-});
-</script>
-<?php } ?>
+    <?php if ($this->session->flashdata('berhasil_batal')) { ?>
+    <script>
+    Swal.fire({
+        title: "Berhasil",
+        text: "<?php echo $this->session->flashdata('berhasil_batal'); ?>",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500
+    });
+    </script>
+    <?php } ?>
 
-<?php if ($this->session->flashdata('gagal_cuti')) { ?>
-<script>
-Swal.fire({
-    title: "Gagal",
-    text: "<?php echo $this->session->flashdata('gagal_cuti'); ?>",
-    icon: "error",
-    showConfirmButton: false,
-    timer: 1500
-});
-</script>
-<?php } ?>
+    <?php if ($this->session->flashdata('berhasil_cuti')) { ?>
+    <script>
+    Swal.fire({
+        title: "Berhasil",
+        text: "<?php echo $this->session->flashdata('berhasil_cuti'); ?>",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500
+    });
+    </script>
+    <?php } ?>
 
-<?php if ($this->session->flashdata('berhasil_batal')) { ?>
-<script>
-Swal.fire({
-    title: "Berhasil",
-    text: "<?php echo $this->session->flashdata('berhasil_batal'); ?>",
-    icon: "success",
-    showConfirmButton: false,
-    timer: 1500
-});
-</script>
-<?php } ?>
+    <?php if ($this->session->flashdata('gagal_cuti')) { ?>
+    <script>
+    Swal.fire({
+        title: "Gagal",
+        text: "<?php echo $this->session->flashdata('gagal_cuti'); ?>",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500
+    });
+    </script>
+    <?php } ?>
 
-<?php if ($this->session->flashdata('gagal_batal')) { ?>
-<script>
-Swal.fire({
-    title: "Gagal",
-    text: "<?php echo $this->session->flashdata('gagal_batal'); ?>",
-    icon: "error",
-    showConfirmButton: false,
-    timer: 1500
-});
-</script>
-<?php } ?>
+    <?php if ($this->session->flashdata('gagal_batal')) { ?>
+    <script>
+    Swal.fire({
+        title: "Gagal",
+        text: "<?php echo $this->session->flashdata('gagal_batal'); ?>",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500
+    });
+    </script>
+    <?php } ?>
+
+</body>
 
 </html>
