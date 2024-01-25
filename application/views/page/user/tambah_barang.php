@@ -4,8 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah_barang</title>
+    <title>Tambah Barang</title>
 </head>
+<style>
+/* Add your responsive styles here */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Responsive styles for the container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Responsive styles for the form */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles for input fields */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Responsive styles for buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-back {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-save {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Add more responsive styles as needed */
+</style>
 
 <body>
     <?php $this->load->view('component/sidebar_user'); ?>

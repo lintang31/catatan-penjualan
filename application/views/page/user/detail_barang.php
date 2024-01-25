@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Barang</title>
+    <!-- Include Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
 
-<body>
+<body class="bg-gray-100 dark:bg-gray-900">
+
     <?php $this->load->view('component/sidebar_user'); ?>
+
     <div class="p-4 sm:ml-64">
-        <div class="p-5 mt-10">
+        <div class="p-3 mt-6">
 
             <!-- Card -->
             <div
@@ -24,59 +28,59 @@
 
                 <!-- GET Data dan ID -->
 
-
                 <div class="mt-5 text-left">
                     <?php foreach ($manajemen_produk as $manajemen_produk): ?>
                     <!-- Form Input -->
-                    <form action="<?php echo base_url(
-                        ''
-                    ); ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo base_url(''); ?>" method="post" enctype="multipart/form-data">
                         <!-- Nama & Alamat Input -->
-                        <div class="grid md:grid-cols-2 md:gap-6">
-                            <div class="relative z-0 w-full mb-6 group">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="mb-6">
+                                <label for="nama_barang"
+                                    class="block text-sm font-medium text-gray-700 dark:text-white">
+                                    Nama Barang
+                                </label>
                                 <input type="text" name="nama_barang" id="nama_barang"
                                     value="<?php echo $manajemen_produk->nama_barang; ?>"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " autocomplete="off" required readonly />
-                                <label for="nama_barang"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama
-                                    Barang
-                                </label>
+                                    class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                                    placeholder="Nama Barang" autocomplete="off" required readonly />
                             </div>
-                            <div class="relative z-0 w-full mb-6 group">
+                            <div class="mb-6">
+                                <label for="jumlah_barang"
+                                    class="block text-sm font-medium text-gray-700 dark:text-white">
+                                    Jumlah Barang
+                                </label>
                                 <input type="text" name="jumlah_barang" id="jumlah_barang"
                                     value="<?php echo $manajemen_produk->jumlah_barang; ?>"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " autocomplete="off" required readonly />
-                                <label for="jumlah_barang"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Jumlah
-                                    Barang
-                                </label>
+                                    class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                                    placeholder="Jumlah Barang" autocomplete="off" required readonly />
                             </div>
-                            <div class="relative z-0 w-full mb-6 group">
+                            <div class="mb-6">
+                                <label for="harga_barang"
+                                    class="block text-sm font-medium text-gray-700 dark:text-white">
+                                    Harga Barang
+                                </label>
                                 <input type="text" name="harga_barang" id="harga_barang"
                                     value="<?php echo $manajemen_produk->harga_barang; ?>"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " autocomplete="off" required readonly />
-                                <label for="harga_barang"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Harga
-                                    Barang
-                                </label>
+                                    class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                                    placeholder="Harga Barang" autocomplete="off" required readonly />
                             </div>
-                            <div class="relative z-0 w-full mb-6 group">
+                            <div class="mb-6">
+                                <label for="keterangan_barang"
+                                    class="block text-sm font-medium text-gray-700 dark:text-white">
+                                    Keterangan Barang
+                                </label>
                                 <input type="text" name="keterangan_barang" id="keterangan_barang"
                                     value="<?php echo $manajemen_produk->keterangan_barang; ?>"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " autocomplete="off" required readonly />
-                                <label for="keterangan_barang"
-                                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Alamat
-                                </label>
+                                    class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
+                                    placeholder="Keterangan Barang" autocomplete="off" required readonly />
                             </div>
                         </div>
+
                         <!-- Button -->
                         <div class="flex justify-between">
-                            <a class="focus:outline-none text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                                href="javascript:history.go(-1)"> <i class="fa-solid fa-arrow-left"></i>
+                            <a href="javascript:history.go(-1)"
+                                class="btn-red focus:outline-none hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:hover:bg-red-700 dark:focus:ring-red-900 dark:bg-red-600 dark:text-white">
+                                <i class="fa-solid fa-arrow-left"></i> Back
                             </a>
                         </div>
                     </form>

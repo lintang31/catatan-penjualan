@@ -48,6 +48,18 @@
         text-decoration: none;
         border: none;
         cursor: pointer;
+        display: inline-block;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .content {
+            margin: 10px;
+        }
+
+        .back-button {
+            display: block;
+            margin-top: 10px;
+        }
     }
     </style>
 </head>

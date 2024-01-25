@@ -11,13 +11,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Include DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
 </head>
 
-<body>
+<body class="bg-gray-100 font-sans">
     <?php $this->load->view('component/sidebar_user'); ?>
 
     <div class="p-4 sm:ml-64">
-        <div class="p-5 mt-10">
+        <div class="p-3 mt-6">
             <div
                 class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex justify-between">
@@ -30,12 +31,12 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">No</th>
-                                <th scope="col" class="px-6 py-3">Nama Barang</th>
-                                <th scope="col" class="px-6 py-3">Tanggal</th>
-                                <th scope="col" class="px-6 py-3">Jumlah Barang</th>
-                                <th scope="col" class="px-6 py-3">Harga Barang</th>
-                                <th scope="col" class="px-6 py-3">Keterangan Barang</th>
-                                <th scope="col" class="px-6 py-3">Aksi</th>
+                                <th scope="col" class="px-6 py-3" style="text-align: center;">Nama Barang</th>
+                                <th scope="col" class="px-6 py-3" style="text-align: center;">Tanggal</th>
+                                <th scope="col" class="px-6 py-3" style="text-align: center;">Jumlah Barang</th>
+                                <th scope="col" class="px-6 py-3" style="text-align: center;">Harga Barang</th>
+                                <th scope="col" class="px-6 py-3" style="text-align: center;">Keterangan Barang</th>
+                                <th scope="col" class="px-6 py-3" style="text-align: center;">Aksi</th>
                             </tr>
                         </thead>
 
@@ -51,23 +52,23 @@
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <?php echo $no; ?>
                                 </th>
-                                <td class="px-6 py-4"><?php echo $row->nama_barang; ?></td>
+                                <td class="px-6 py-3" style="text-align: center;"><?php echo $row->nama_barang; ?></td>
                                 <td class="px-6 py-4"><?php echo $row->tanggal; ?></td>
-                                <td class="px-6 py-4"><?php echo $row->jumlah_barang; ?></td>
-                                <td class="px-6 py-4"><?php echo $row->harga_barang; ?></td>
-                                <td class="px-6 py-4"><?php echo $row->keterangan_barang; ?></td>
+                                <td class="px-6 py-3" style="text-align: center;"><?php echo $row->jumlah_barang; ?>
+                                </td>
+                                <td class="px-6 py-3" style="text-align: center;"><?php echo $row->harga_barang; ?></td>
+                                <td class="px-6 py-3" style="text-align: center;"><?php echo $row->keterangan_barang; ?>
+                                </td>
                                 <td class="px-6 py-4">
                                     <a type="button" href="<?= base_url('user/detail_jualan/' . $row->id_penjualan) ?>"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full button-info">
                                         <i class="fas fa-info-circle"></i>
                                     </a>
-
                                     <a id="downloadPdfButton" type="button"
                                         href="<?php echo base_url('user/nota_barang/') . $row->id_penjualan; ?>"
                                         class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full button-print">
                                         <i class="fas fa-print"></i>
                                     </a>
-
                                 </td>
                             </tr>
                             <?php endforeach;
@@ -86,11 +87,14 @@
     <!-- Include jQuery and DataTables scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 
     <!-- DataTables initialization script -->
     <script>
     $(document).ready(function() {
-        $('#datajualan').DataTable();
+        $('#datajualan').DataTable({
+            responsive: true
+        });
     });
     </script>
 
