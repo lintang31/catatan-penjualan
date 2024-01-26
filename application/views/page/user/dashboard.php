@@ -90,7 +90,6 @@
 <body>
     <?php $this->load->view('component/sidebar_user'); ?>
     <div class="p-2 sm:ml-64">
-        <!-- Card Selamat Datang -->
         <div class="mt-10 w-full">
             <div
                 class="p-4 text-center bg-gray-200 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
@@ -101,7 +100,6 @@
                     $date = $currentDateTime->format('l, d F Y');
                     $timeWIB = $currentDateTime->format('H:i');
                 ?>
-
                 <h2 class="text-2xl font-semibold mb-4">Selamat Datang
                     <span><?php echo $this->session->userdata('username'); ?></span>
                 </h2>
@@ -112,78 +110,97 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
             <!-- Add your grid content here -->
         </div>
-        <div class="p-2 mt-5 flex items-center justify-center">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-5 w-full max-w-screen-lg mx-auto">
-                <a href="<?= base_url('user/manajemen_produk') ?>"
-                    class="w-full p-4 text-center bg-red-400 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+
+        <div class="p-2 mt-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <a href=""
+                    class="w-full p-4 text-center bg-red-500 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Barang Produk</h5>
-                    <hr class="mb-4 border-gray-900">
+                    <hr class="mb-4">
                     <div class="flex justify-between">
-                        <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400"></p>
                         <div>
-                            <i class="fa-solid fa-cube fa-fw fa-lg me-3 fa-2xl"></i>
+                            <!-- Ganti ikon berdasarkan nama yang diinginkan, misalnya "fa-cube" -->
+                            <i class="fa-solid fa-cube fa-2xl"></i>
+                        </div>
+                    </div>
+                </a>
+                <a href=""
+                    class="w-full p-4 text-center bg-yellow-400 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">Proses Jualan</h5>
+                    <hr class="mb-4">
+                    <div class="flex justify-between">
+                        <div>
+                            <!-- Ganti ikon berdasarkan nama yang diinginkan, misalnya "fa-credit-card" -->
+                            <i class="fa-solid fa-credit-card fa-2xl"></i>
+                        </div>
+                    </div>
+                </a>
+                <a href=""
+                    class="w-full p-4 text-center bg-green-500 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                    <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">History Jualan</h5>
+                    <hr class="mb-4">
+                    <div class="flex justify-between">
+                        <div>
+                            <!-- Ganti ikon berdasarkan nama yang diinginkan, misalnya "fa-history" -->
+                            <i class="fa-solid fa-history fa-fw fa-2xl"></i>
                         </div>
                     </div>
                 </a>
             </div>
-        </div>
-
-
-        <!-- Sales History Section -->
-        <div class="card sales-history-card">
-            <h2 class="card-title">History Penjualan</h2>
-            <div class="grid-container">
-                <?php
-                if ($sales_history !== null) :
-                    foreach ($sales_history as $sale) :
+            <br>
+            <!-- Sales History Section -->
+            <div class="card sales-history-card">
+                <h2 class="card-title">History Penjualan</h2>
+                <div class="grid-container">
+                    <?php
+                    if ($sales_history !== null) :
+                        foreach ($sales_history as $sale) :
                 ?>
-                <div class="card">
-                    <h4 class="text-lg font-semibold mb-2"><?= $sale->nama_barang; ?></h4>
-                    <p>Jumlah Barang: <?= $sale->jumlah_barang; ?></p>
-                    <p>Harga Barang: <?= $sale->harga_barang; ?></p>
-                    <p>Keterangan Barang: <?= $sale->keterangan_barang; ?></p>
+                    <div class="card">
+                        <h4 class="text-lg font-semibold mb-2"><?= $sale->nama_barang; ?></h4>
+                        <p>Jumlah Barang: <?= $sale->jumlah_barang; ?></p>
+                        <p>Harga Barang: <?= $sale->harga_barang; ?></p>
+                        <p>Keterangan Barang: <?= $sale->keterangan_barang; ?></p>
+                    </div>
+                    <?php
+                        endforeach;
+                    else :
+                ?>
+                    <p>No sales history available</p>
+                    <?php
+                    endif;
+                ?>
                 </div>
-                <?php
-                    endforeach;
-                else :
-                    ?>
-                <p>No sales history available</p>
-                <?php
-                endif;
-                ?>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
 
-    <script>
-    function validatePulang() {
-        const currentHour = new Date().getHours();
+        <script>
+        function validatePulang() {
+            const currentHour = new Date().getHours();
 
-        if (currentHour < 16) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Belum waktunya pulang!',
-            });
-        } else {
-            window.location.href = '<?= base_url('user/pulang') ?>';
+            if (currentHour < 16) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Belum waktunya pulang!',
+                });
+            } else {
+                window.location.href = '<?= base_url('user/pulang') ?>';
+            }
         }
-    }
-    </script>
+        </script>
 
-    <?php if ($this->session->flashdata('login_success')) { ?>
-    <script>
-    Swal.fire({
-        title: 'Berhasil Login',
-        text: '<?php echo $this->session->flashdata('login_success'); ?>',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 1500
-    })
-    </script>
-    <?php } ?>
+        <?php if ($this->session->flashdata('login_success')) { ?>
+        <script>
+        Swal.fire({
+            title: 'Berhasil Login',
+            text: '<?php echo $this->session->flashdata('login_success'); ?>',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        </script>
+        <?php } ?>
 
 </body>
 

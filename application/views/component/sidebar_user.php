@@ -103,6 +103,57 @@ $image = $_SESSION['image'];
                         <span class="flex-1 ml-3 whitespace-nowrap">History</span>
                     </a>
                 </li>
+                <li>
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                        <i
+                            class="fa-solid fa-list fa-lg me-3 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap">Laporan Penjualan</span>
+                        <i
+                            class="fa-solid fa-chevron-down fa-lg me-3 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
+                    </button>
+
+                    <ul id="dropdown-example" class="hidden py-2 space-y-2">
+
+                        <!-- Menu Harian -->
+                        <li>
+                            <a href="<?php echo base_url(
+                                'user/laporan_harian'
+                            ); ?>"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                <i
+                                    class="fa-solid fa-calendar-day fa-lg me-3 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
+                                <span class="flex-1 ml-3 whitespace-nowrap">Harian</span>
+                            </a>
+                        </li>
+
+                        <!-- Menu Mingguan -->
+                        <li>
+                            <a href="<?php echo base_url(
+                                'user/laporan_bulanan'
+                            ); ?>"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                <i
+                                    class="fa-solid fa-calendar-week fa-lg me-3 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
+                                <span class="flex-1 ml-3 whitespace-nowrap">Bulanan</span>
+                            </a>
+                        </li>
+
+                        <!-- Menu Bulanan -->
+                        <li>
+                            <a href="<?php echo base_url(
+                                'admin/laporan_tahunan'
+                            ); ?>"
+                                class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+                                <i
+                                    class="fa-solid fa-calendar fa-lg me-3 text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
+                                <span class="flex-1 ml-3 whitespace-nowrap">Tahunan</span>
+                            </a>
+                        </li>
+                        </a>
+                    </ul>
+                </li>
             </ul>
         </div>
     </aside>

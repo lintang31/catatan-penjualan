@@ -279,5 +279,18 @@ public function get_sales_history() {
     return $query->result(); // Assuming you want to return an array of objects
 }
 
+public function getRekapHarian($tanggal)
+{
+    // Gantilah 'nama_tabel' dengan nama tabel yang sesuai di database Anda
+    $this->db->select('*');
+    $this->db->from('proses_penjualan as a'); // Memberikan alias 'a' pada tabel absensi
+    $this->db->where('a.tanggal', $tanggal);
+
+    $query = $this->db->get();
+
+    return $query->result();
+    // Mengembalikan array kosong jika tidak ada data yang ditemukan
+}
+
 }
 ?>

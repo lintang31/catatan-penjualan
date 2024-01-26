@@ -200,6 +200,13 @@ public function display_barang($id_barang) {
     $this->nota_barang($id_barang);
 }
 
+// Page rekap harian
+public function laporan_harian()
+{
+    $tanggal = $this->input->get('tanggal');
+    $data['perhari'] = $this->User_model->getRekapHarian($tanggal);
+    $this->load->view('page/user/laporan_harian', $data);
+}
 
 
     }

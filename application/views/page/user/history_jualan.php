@@ -42,10 +42,10 @@
 
                         <tbody class='text-left'>
                             <?php
-                            $no = 0;
-                            if ($proses_penjualan !== null) {
-                                foreach ($proses_penjualan as $row):
-                                    $no++; ?>
+                               $no = 0;
+                             if ($proses_penjualan !== null) {
+                             foreach ($proses_penjualan as $row):
+                              $no++; ?>
                             <tr
                                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th scope="row"
@@ -60,23 +60,26 @@
                                 <td class="px-6 py-3" style="text-align: center;"><?php echo $row->keterangan_barang; ?>
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a type="button" href="<?= base_url('user/detail_jualan/' . $row->id_penjualan) ?>"
-                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full button-info">
-                                        <i class="fas fa-info-circle"></i>
-                                    </a>
-                                    <a id="downloadPdfButton" type="button"
-                                        href="<?php echo base_url('user/nota_barang/') . $row->id_penjualan; ?>"
-                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full button-print">
-                                        <i class="fas fa-print"></i>
-                                    </a>
+                                    <div class="flex justify-center">
+                                        <a type="button"
+                                            href="<?= base_url('user/detail_jualan/' . $row->id_penjualan) ?>"
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full button-info mr-1">
+                                            <i class="fas fa-info-circle"></i>
+                                        </a>
+                                        <a id="downloadPdfButton" type="button"
+                                            href="<?php echo base_url('user/nota_barang/') . $row->id_penjualan; ?>"
+                                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full button-print ml-1">
+                                            <i class="fas fa-print"></i>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             <?php endforeach;
-                            } else {
-                                // Display a message if $proses_penjualan is null
-                                echo '<tr><td colspan="6">No data available</td></tr>';
-                            }
-                            ?>
+                              } else {
+                             // Display a message if $proses_penjualan is null
+                             echo '<tr><td colspan="7">No data available</td></tr>';
+                              }
+                             ?>
                         </tbody>
                     </table>
                 </div>
