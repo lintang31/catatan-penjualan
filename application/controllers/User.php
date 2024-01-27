@@ -14,6 +14,7 @@ class User extends CI_Controller
         $this->load->helper('url');
         $this->load->model('m_model'); // Sesuaikan dengan nama model Anda
         $this->load->model('User_model'); // Sesuaikan dengan nama model Anda
+        $this->load->helper('user_helper'); // Sesuaikan dengan nama model Anda
     }
     public function index()
     {
@@ -207,6 +208,16 @@ public function laporan_harian()
     $data['perhari'] = $this->User_model->getRekapHarian($tanggal);
     $this->load->view('page/user/laporan_harian', $data);
 }
+
+
+public function laporan_bulan()
+{
+    $bulan = $this->input->post('bulan'); // Menggunakan post karena form menggunakan method="post"
+    $data['proses_penjualan'] = $this->User_model->get_bulanan($bulan);
+    $this->session->set_flashdata('bulan', $bulan);
+    $this->load->view('page/user/laporan_bulan', $data);
+}
+
 
 
     }

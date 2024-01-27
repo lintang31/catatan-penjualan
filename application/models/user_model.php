@@ -292,5 +292,25 @@ public function getRekapHarian($tanggal)
     // Mengembalikan array kosong jika tidak ada data yang ditemukan
 }
 
+public function get_bulanan($date)
+{
+    $this->db->from('proses_penjualan');
+    $this->db->where("DATE_FORMAT(proses_penjualan.tanggal, '%m') =", $date);
+    $query = $this->db->get();
+    return $query->result();
+}
+
+public function get_proses_penjualan_dataa() {
+    // Assuming you have a database table named 'proses_penjualan'
+    $query = $this->db->get('proses_penjualan');
+
+    // Check if there are any rows
+    if ($query->num_rows() > 0) {
+        return $query->result();
+    } else {
+        return array(); // Return an empty array if no data is found
+    }
+}
+
 }
 ?>
