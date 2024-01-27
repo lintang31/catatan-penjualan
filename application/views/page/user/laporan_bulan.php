@@ -37,7 +37,7 @@ function convDate($date)
 <body>
     <?php $this->load->view('component/sidebar_user'); ?>
     <div class="p-4 sm:ml-64">
-        <div class="p-5 mt-10">
+        <div class="p-2 mt-10">
             <main id="content" class="flex-1 p-4 sm:p-6">
                 <div class="bg-white rounded-lg shadow-md p-4">
                     <div class="flex justify-between">
