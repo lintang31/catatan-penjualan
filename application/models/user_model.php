@@ -312,5 +312,16 @@ public function get_proses_penjualan_dataa() {
     }
 }
 
+public function getYearlyReport($year)
+{
+    // Assuming your table name is 'proses_penjualan'
+    $this->db->select('*');
+    $this->db->from('proses_penjualan');
+    $this->db->where('YEAR(tanggal)', $year);
+    $query = $this->db->get();
+
+    return $query->result();
+}
+
 }
 ?>

@@ -218,6 +218,30 @@ public function laporan_bulan()
     $this->load->view('page/user/laporan_bulan', $data);
 }
 
+public function laporan_tahun()
+{
+    // Handle form submission
+    $data['proses_penjualan'] = []; // Initialize with an empty array
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $year = $this->input->post('tahun');
+
+        // Validate $year if needed
+
+        // Get data for the selected year
+        $data['proses_penjualan'] = $this->User_model->getYearlyReport($year);
+        $this->session->set_flashdata('tahun', $year);
+    } else {
+        // Default to the current year
+        $currentYear = date("Y");
+        $this->session->set_flashdata('tahun', $currentYear);
+    }
+
+    // Load your view with the data
+    $this->load->view('page/user/laporan_tahun', $data);
+}
+
+
 
 
     }
