@@ -48,6 +48,11 @@ function convDate($date) {
                             onclick="submitForm('filter')">
                             <i class="fa-solid fa-filter"></i>
                         </button>
+                        <button type="button"
+                            class="exp bg-green-500 hover:bg-green text-white font-bold py-2 px-4 rounded inline-block ml-auto"
+                            onclick="submitForm('export')">
+                            <i class="fa-solid fa-file-export"></i>
+                        </button>
                     </div>
                 </form>
                 <?php if (empty($perhari)): ?>
@@ -131,7 +136,7 @@ function submitForm(action) {
     if (action === 'filter') {
         form.attr('action', "<?= base_url('user/laporan_harian') ?>");
     } else if (action === 'export') {
-        form.attr('action', "<?= base_url('admin/export_harian') ?>");
+        form.attr('action', "<?= base_url('user/export_harian') ?>");
     }
 
     // Submit the form

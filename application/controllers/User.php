@@ -22,6 +22,8 @@ class User extends CI_Controller
         $data['user_count'] = $this->User_model->get_user_count();
         $data['user'] = $this->User_model->get_user_data();
         $data['sales_history'] = $this->User_model->get_sales_history();
+        $data['product_count'] = $this->User_model->getProductsCount(); // Fetch the count
+        $data['history_count'] = $this->User_model->getHistoryCount();
 
         $this->load->view('page/user/dashboard', $data);
     }

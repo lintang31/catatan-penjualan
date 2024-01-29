@@ -38,39 +38,14 @@ $image = $_SESSION['image'];
                 </div>
                 <div class="flex items-center">
                     <div class="flex items-center ml-3">
-                        <div>
-                            <button type="button"
-                                class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                                aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                                <span class="sr-only">Open user menu</span>
-                                <img class="w-8 h-8 rounded-full" src="<?= base_url(
-                                    'images/user/' . $image
-                                ) ?>" alt="user photo"></button>
-                        </div>
-                        <div class="z-50 hidden my-4 text-base list-none bg-orange-50 divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
-                            id="dropdown-user">
-                            <div class="px-4 py-3" role="none">
-                                <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                    <?= $username ?>
-                                </p>
-                                <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                    <?= $email ?>
-                                </p>
-                            </div>
-                            <ul class="py-1" role="none">
-                                <li>
-                                    <a onclick="confirmLogout();"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Log out</a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Sidebar -->
     <aside id="logo-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full border-r border-gray-200 sm:translate-x-0 dark:border-gray-200 bg-gray-200 dark:bg-gray-200"
         aria-label="Sidebar">
@@ -115,7 +90,6 @@ $image = $_SESSION['image'];
                     </button>
 
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
-
                         <!-- Menu Harian -->
                         <li>
                             <a href="<?php echo base_url(
@@ -151,8 +125,20 @@ $image = $_SESSION['image'];
                                 <span class="flex-1 ml-3 whitespace-nowrap">Tahunan</span>
                             </a>
                         </li>
-                        </a>
                     </ul>
+                </li>
+            </ul>
+
+            <!-- Logout Menu -->
+            <!-- Logout Menu -->
+            <ul class="space-y-2 font-medium mt-10">
+                <li>
+                    <a onclick="confirmLogout();"
+                        class="flex items-center p-2 text-orange-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <i
+                            class="fa-solid fa-sign-out-alt fa-lg me-3 text-orange-400 group-hover:text-orange-900 dark:group-hover:text-white"></i>
+                        <span class="ml-3">Logout</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -160,6 +146,8 @@ $image = $_SESSION['image'];
 
     <div class="p-4 sm:ml-64">
     </div>
+
+    <!-- ... (your existing scripts) ... -->
 
     <script>
     // Enable pusher logging - don't include this in production

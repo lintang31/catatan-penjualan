@@ -323,5 +323,23 @@ public function getYearlyReport($year)
     return $query->result();
 }
 
+
+public function getDailyReport($tanggal) {
+    // Adjust the table name according to your database structure
+    $this->db->where('tanggal', $tanggal);
+    $query = $this->db->get('proses_penjualan'); // Replace 'your_table_name' with your actual table name
+
+    return $query->result();
+}
+
+public function getProductsCount() {
+    return $this->db->count_all('manajemen_produk'); // Replace 'your_product_table' with your actual table name
+}
+
+public function getHistoryCount() {
+    return $this->db->count_all('proses_penjualan'); // Replace 'your_history_table' with your actual history table name
+}
+
+
 }
 ?>
